@@ -5,6 +5,8 @@ Additionally the [`jinja2`](https://jinja.palletsprojects.com/en/2.11.x/) /
 [`nunjucks`](https://github.com/mozilla/nunjucks) templating syntax from python can be used.
 The Application where this project was originally intended for, had the need to collect HTML and TXT emails in a bundled place, for easily editing and testing.
 
+Inspired by [azabraao](https://github.com/azabraao/email-dev-template).
+
 ## Usage
 
 ``npm run build``: Build emails once.
