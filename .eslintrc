@@ -1,0 +1,6 @@
+{
+  "extends": "standard",
+  "rules": {
+    "func-names": ["error", "never"]
+  }
+}
