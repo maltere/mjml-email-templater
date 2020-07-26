@@ -5,12 +5,12 @@ import nunjucks from 'gulp-nunjucks'
 import mjml from 'gulp-mjml'
 import mjmlEngine from 'mjml'
 
-import render_data from './render_data'
+import renderData from './render_data'
 
 const dest = gulp.dest
 
-const renderData = async function (file) {
-  return render_data
+const getRenderData = async function (file) {
+  return renderData
 }
 
 const compileEmails = async function () {
@@ -19,7 +19,7 @@ const compileEmails = async function () {
   return gulp.src('./emails/**/*.mjml')
     .pipe(mjmlInstance)
     .pipe(dest('./dist/emails/'))
-    .pipe(data(renderData))
+    .pipe(data(getRenderData))
     .pipe(nunjucks.compile())
     .pipe(dest('./dist/preview/'))
 }
@@ -28,7 +28,7 @@ gulp.task('compileEmails', compileEmails)
 const createTxtEmailPreview = async function () {
   return gulp.src('./emails/**/*.txt')
     .pipe(dest('./dist/emails/'))
-    .pipe(data(renderData))
+    .pipe(data(getRenderData))
     .pipe(nunjucks.compile())
     .pipe(rename({ extname: '.txt' }))
     .pipe(dest('./dist/preview/'))
